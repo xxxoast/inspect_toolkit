@@ -31,19 +31,18 @@ def search(corpration,inspect_item):
                     field.append(j)
                 result.append(field)
             result = unicode2utf8_r(result)
-            result = json.dumps(result)
-            return {'status':status,'error_code':error_code,'result':result}
+            return json.dumps({'status':status,'error_code':error_code,'result':result})
         except BaseException,arg:
             status,ec,result = 1,1,error_code[1]
-            return {'status':status,'error_code':ec,'result':result}
+            return json.dumps({'status':status,'error_code':ec,'result':result})
     else:
         status,ec,result = 1,2,error_code[2]
-        return {'status':status,'error_code':ec,'result':result}
+        return json.dumps({'status':status,'error_code':ec,'result':result})
         
 if __name__ == '__main__':
-    result = search('pingan','merchant')
+    result = json.loads(search('pingan','merchant'))
     if result['status'] == 0:
-        print result['result']
+        print type(result['result']),result['result']
     else:
         print result
         
