@@ -1,6 +1,6 @@
+# coding : utf-8
 from db_base import DB_BASE
 from sqlalchemy import Table,Integer,String,Column,BigInteger,Text,Float
-from sqlalchemy.ext.declarative import declarative_base
 from utils import unicode2utf8
 
 class dbAPI(DB_BASE):

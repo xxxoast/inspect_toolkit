@@ -11,9 +11,7 @@ class DB_BASE(object):
     def __init__(self, db_name):
 
         self.db_name = db_name
-        connect_str = "mysql+pymysql://xudi:123456@127.0.0.1:3306/{0}?charset=utf8".format(
-            db_name)
-
+        connect_str = "mysql+pymysql://xudi:123456@127.0.0.1:3306/{0}?charset=utf8".format(db_name)
         self.engine = create_engine(connect_str, echo=False, encoding = "utf8")
         self.meta = MetaData(bind=self.engine)
         self.session = sessionmaker(bind=self.engine)

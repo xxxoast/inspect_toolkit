@@ -1,4 +1,5 @@
 # encoding : utf-8
+
 from multiprocessing import Process
 import time
 
@@ -7,6 +8,7 @@ infinite_plus = 1e10
 infinite_minus = -1e10
 
 unicode2utf8 = lambda x: x.encode('utf8') if isinstance(x,unicode) else x
+unicode2cp936 = lambda x: x.encode('cp936') if isinstance(x,unicode) else x
 
 def run_paralell_tasks(func, iter_args):
     tasks = []
@@ -79,7 +81,7 @@ def unicode2cp936_r(obj):
         new_list = [unicode2cp936_r(i) for i in obj]
         return new_list
     elif isinstance(obj, unicode):
-        return obj.encoding('cp936')
+        return unicode2cp936(obj)
     else:
         return obj   
    
