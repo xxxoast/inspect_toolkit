@@ -1,5 +1,5 @@
 # encoding : utf-8
-from __future__ import unicode_literals   
+#from __future__ import unicode_literals   
 from config import inspect_obj_table
 from config import error_code
 from utils import unicode2utf8_r,unicode2cp936_r
