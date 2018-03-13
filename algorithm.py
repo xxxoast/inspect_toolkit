@@ -40,11 +40,11 @@ def search(corpration,inspect_item):
         return json.dumps({'status':status,'error_code':ec,'result':result})
         
 if __name__ == '__main__':
-    result = json.loads(search('pingan','merchant'))
-    if result['status'] == 0:
-        print type(result['result']),result['result']
-    else:
-        print result
+#     result = unicode2utf8_r(json.loads(search('pingan','merchant')))
+#     print result
+    result = add.delay(1,2)
+    print result.get()
+
         
     
     
