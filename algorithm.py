@@ -1,4 +1,4 @@
-# encoding : utf-8
+# coding : utf-8
 #from __future__ import unicode_literals   
 from config import inspect_obj_table
 from config import error_code
@@ -11,8 +11,9 @@ merchant_search_sql = '''
         t.account_number AS 'account_number',
         t.account_name AS 'account_name'
     FROM
-        {0}.hangzhou_swap_code_trade t
+        pingan.hangzhou_swap_code_trade t
     where t.account_number is not null
+    and   length(t.account_name) > 2
     GROUP BY t.account_number,t.account_name
     having count(1) > 20
     order by count(1) desc;
